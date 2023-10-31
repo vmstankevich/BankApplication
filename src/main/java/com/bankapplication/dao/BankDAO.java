@@ -6,19 +6,15 @@ import com.bankapplication.model.Bank;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-public class BankDAO {
+public class BankDAO implements DaoConnector<Bank> {
+
+
     public void createBank(Bank bank) {
-        try (Connection connection = DatabaseConnection.getConnection();
-             PreparedStatement statement = connection.prepareStatement("INSERT INTO bankapplication.bank (bank_id, name, address) VALUES (?, ?, ?)")) {
-            statement.setInt(1, bank.getBankId());
-            statement.setString(2, bank.getName());
-            statement.setString(3, bank.getAddress());
-            statement.executeUpdate();
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
     public void readBank(int bankId) {
@@ -31,5 +27,30 @@ public class BankDAO {
 
     public void deleteBank(int bankId) {
 
+    }
+
+    @Override
+    public String tableName() {
+        return "bankapplication.bank";
+    }
+
+
+    @Override
+    public List<String> columnNames() {
+        return Arrays.asList("bank_id", "name", "address");
+    }
+
+    @Override
+    public Bank create(Bank bank) {
+        return DaoConnector.super.create(bank);
+    }
+
+    @Override
+    public PreparedStatement process(PreparedStatement ps, Bank bank) throws SQLException {
+        int i = 0;
+        ps.setInt(++i, bank.getBankId());
+        ps.setString(++i, bank.getName());
+        ps.setString(++i, bank.getAddress());
+        return ps;
     }
 }

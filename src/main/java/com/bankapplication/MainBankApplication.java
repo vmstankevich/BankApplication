@@ -3,6 +3,7 @@ package com.bankapplication;
 import com.bankapplication.dao.BankDAO;
 import com.bankapplication.model.Bank;
 
+
 public class MainBankApplication {
     public static void main(String[] args) {
         Bank bank1 = new Bank(1, "Golden Bank", "01-791, Warszawa, Mazowiecka str. 23");
@@ -13,10 +14,10 @@ public class MainBankApplication {
 
         BankDAO bankDao = new BankDAO();
 
-        bankDao.createBank(bank1);
-        bankDao.createBank(bank2);
-        bankDao.createBank(bank3);
-        bankDao.createBank(bank4);
-        bankDao.createBank(bank5);
+        bankDao.create(bank1);
+        bankDao.create(bank2);
+        bankDao.create(bank3);
+        bankDao.create(bank4);
+        bankDao.create(bank5);
     }
 }
