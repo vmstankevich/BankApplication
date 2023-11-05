@@ -19,5 +19,6 @@ public class MainBankApplication {
         bankDao.create(bank3);
         bankDao.create(bank4);
         bankDao.create(bank5);
+
     }
 }

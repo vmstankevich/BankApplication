@@ -41,11 +41,6 @@ public class BankDAO implements DaoConnector<Bank> {
     }
 
     @Override
-    public Bank create(Bank bank) {
-        return DaoConnector.super.create(bank);
-    }
-
-    @Override
     public PreparedStatement process(PreparedStatement ps, Bank bank) throws SQLException {
         int i = 0;
         ps.setInt(++i, bank.getBankId());

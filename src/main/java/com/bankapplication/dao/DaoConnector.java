@@ -19,7 +19,8 @@ public interface DaoConnector<T> {
         String questionMarks = String.join(", ", Collections.nCopies(columnNames().size(), "?"));
         String query = String.format(
                 "INSERT INTO %s (%s) VALUES (%s)", tableName(), String.join(", ", columnNames()), questionMarks);
-        try (Connection connection = DatabaseConnection.getConnection();
+        DatabaseConnection databaseConnection = new DatabaseConnection();
+        try (Connection connection = databaseConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(
                      query
              )) {
