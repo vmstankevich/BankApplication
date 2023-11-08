@@ -1,17 +1,17 @@
 package com.bankapplication.model;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 public class Transaction {
     private int transactionId;
     private int fromAccountId;
     private int toAccountId;
     private double amount;
-    private Date transactionDate;
+    private Timestamp transactionDate;
     private String description;
 
 
-    public Transaction(int transactionId, int fromAccountId, int toAccountId, double amount, Date transactionDate, String description) {
+    public Transaction(int transactionId, int fromAccountId, int toAccountId, double amount, Timestamp transactionDate, String description) {
         this.transactionId = transactionId;
         this.fromAccountId = fromAccountId;
         this.toAccountId = toAccountId;
@@ -53,11 +53,11 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public Date getTransactionDate() {
+    public Timestamp getTransactionDate() {
         return transactionDate;
     }
 
-    public void setTransactionDate(Date transactionDate) {
+    public void setTransactionDate(Timestamp transactionDate) {
         this.transactionDate = transactionDate;
     }
 

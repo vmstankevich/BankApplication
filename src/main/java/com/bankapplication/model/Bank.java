@@ -1,10 +1,15 @@
 package com.bankapplication.model;
 
+
 public class Bank {
     private int bankId;
     private String name;
     private String address;
 
+
+    public Bank() {
+
+    }
     public Bank(int bankId, String name, String address) {
         this.bankId = bankId;
         this.name = name;

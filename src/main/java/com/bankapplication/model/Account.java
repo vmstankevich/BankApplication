@@ -1,22 +1,33 @@
 package com.bankapplication.model;
 
 public class Account {
-    private String account_id;
+    private int accountId;
+    int userId;
+    int bankId;
     private double balance;
-    private int userId;
 
-    public Account(String accountNumber, double balance, int userId) {
-        this.account_id = accountNumber;
-        this.balance = balance;
+    public int getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
-    public String getAccount_id() {
-        return account_id;
+    public int getBankId() {
+        return bankId;
     }
 
-    public void setAccount_id(String account_id) {
-        this.account_id = account_id;
+    public void setBankId(int bankId) {
+        this.bankId = bankId;
     }
 
     public double getBalance() {
@@ -27,11 +38,10 @@ public class Account {
         this.balance = balance;
     }
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
+    public Account(int accountId, int userId, int bankId, double balance) {
+        this.accountId = accountId;
         this.userId = userId;
+        this.bankId = bankId;
+        this.balance = balance;
     }
 }

@@ -2,13 +2,13 @@ package com.bankapplication.model;
 
 public class User {
     private int userId;
+    private String username;
     private String fullName;
+    private String password;
     private String email;
 
-    public User(int userId, String fullName, String email) {
-        this.userId = userId;
-        this.fullName = fullName;
-        this.email = email;
+    public User() {
+
     }
 
     public int getUserId() {
@@ -19,6 +19,14 @@ public class User {
         this.userId = userId;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public String getFullName() {
         return fullName;
     }
@@ -27,11 +35,27 @@ public class User {
         this.fullName = fullName;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public User(int userId, String username, String fullName, String password, String email) {
+        this.userId = userId;
+        this.username = username;
+        this.fullName = fullName;
+        this.password = password;
         this.email = email;
     }
 }

@@ -13,10 +13,6 @@ import java.util.List;
 public class BankDAO implements DaoConnector<Bank> {
 
 
-    public void createBank(Bank bank) {
-
-    }
-
     public void readBank(int bankId) {
 
     }

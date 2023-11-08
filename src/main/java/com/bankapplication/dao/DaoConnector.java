@@ -10,6 +10,7 @@ import java.util.List;
 
 public interface DaoConnector<T> {
     String tableName();
+
     List<String> columnNames();
 
     PreparedStatement process(PreparedStatement ps, T t) throws SQLException;

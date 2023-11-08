@@ -19,6 +19,7 @@ dependencies {
     implementation group: 'org.yaml', name: 'snakeyaml', version: '2.2'
 }
 
+
 test {
     useJUnitPlatform()
 }
