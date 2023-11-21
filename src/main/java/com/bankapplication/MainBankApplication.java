@@ -1,9 +1,6 @@
 package com.bankapplication;
 
-import com.bankapplication.dao.AccountDAO;
-import com.bankapplication.dao.BankDAO;
-import com.bankapplication.dao.TransactionDAO;
-import com.bankapplication.dao.UserDAO;
+import com.bankapplication.dao.*;
 import com.bankapplication.model.Account;
 import com.bankapplication.model.Bank;
 import com.bankapplication.model.Transaction;
@@ -23,7 +20,7 @@ public class MainBankApplication {
         Bank bank4 = new Bank(4, "Alior Bank", "01-791, Kraków, Armii krajowej str. 156");
         Bank bank5 = new Bank(5, "MBank", "01-791, Wrocław, Poznańska str. 3");
 
-        BankDAO bankDao = new BankDAO();
+        DaoConnector bankDao = new BankDAOConnector();
 
         /*bankDao.create(bank1);
         bankDao.create(bank2);
@@ -37,16 +34,15 @@ public class MainBankApplication {
         User user1 = new User(
                 1, "random", "Viktar Stankevich", "1234", "vmstankevich@gmail.com");
 
-        UserDAO userDAO = new UserDAO();
+        DaoAbstractConnector userDAO = new UserDAOAbstract();
 
-        userDAO.create(user1);
-
+        //userDAO.create(user1);
 
         // Добавление счетов в БД
 
         Account account1 = new Account(122456780, user1.getUserId(), bank1.getBankId(), 10.00);
         Account account2 = new Account(122456789, user1.getUserId(), bank1.getBankId(), 0.00);
-        AccountDAO accountDAO = new AccountDAO();
+        AccountDAOAbstract accountDAO = new AccountDAOAbstract();
 
         //accountDAO.create(account1);
 
@@ -56,8 +52,8 @@ public class MainBankApplication {
                 15, account1.getAccountId(), account2.getAccountId(), 5.00,
                 new Timestamp(System.currentTimeMillis()), "prezent");
 
-        TransactionDAO transactionDAO = new TransactionDAO();
+        TransactionDAOAbstract transactionDAO = new TransactionDAOAbstract();
 
-        transactionDAO.create(transaction1);
+        //transactionDAO.create(transaction1);
     }
 }

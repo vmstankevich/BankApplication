@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
-public class UserDAO implements DaoConnector<User>{
+public class UserDAOAbstract implements DaoAbstractConnector<User> {
 
         @Override
         public String tableName() {

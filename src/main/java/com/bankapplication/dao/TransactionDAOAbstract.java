@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
-public class TransactionDAO implements DaoConnector<Transaction> {
+public class TransactionDAOAbstract implements DaoAbstractConnector<Transaction> {
     @Override
     public String tableName() {
         return "bankapplication.transaction";

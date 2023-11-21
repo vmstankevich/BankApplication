@@ -1,19 +1,22 @@
 package com.bankapplication.dao;
 
-import com.bankapplication.DatabaseConnection;
 import com.bankapplication.model.Bank;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class BankDAO implements DaoConnector<Bank> {
+//TODO поля tableName, columnNames создавались автоматиески
+public class BankDAOConnector extends DaoAbstractConnector<Bank> {
+    private final static String tableName = "bankapplication.bank";
+    private final static List<String> columnNames = Arrays.asList("bank_id", "name", "address");
 
+    public BankDAOConnector() {
+        super(tableName, columnNames);
+    }
 
-    public void readBank(int bankId) {
+    public void readBank(int bankId) { //List
 
     }
 
@@ -25,16 +28,6 @@ public class BankDAO implements DaoConnector<Bank> {
 
     }
 
-    @Override
-    public String tableName() {
-        return "bankapplication.bank";
-    }
-
-
-    @Override
-    public List<String> columnNames() {
-        return Arrays.asList("bank_id", "name", "address");
-    }
 
     @Override
     public PreparedStatement process(PreparedStatement ps, Bank bank) throws SQLException {

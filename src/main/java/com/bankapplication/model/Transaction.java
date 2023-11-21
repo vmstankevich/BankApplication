@@ -1,6 +1,14 @@
 package com.bankapplication.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.sql.Timestamp;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 
 public class Transaction {
     private int transactionId;
@@ -9,63 +17,4 @@ public class Transaction {
     private double amount;
     private Timestamp transactionDate;
     private String description;
-
-
-    public Transaction(int transactionId, int fromAccountId, int toAccountId, double amount, Timestamp transactionDate, String description) {
-        this.transactionId = transactionId;
-        this.fromAccountId = fromAccountId;
-        this.toAccountId = toAccountId;
-        this.amount = amount;
-        this.transactionDate = transactionDate;
-        this.description = description;
-    }
-
-
-    public int getTransactionId() {
-        return transactionId;
-    }
-
-    public void setTransactionId(int transactionId) {
-        this.transactionId = transactionId;
-    }
-
-    public int getFromAccountId() {
-        return fromAccountId;
-    }
-
-    public void setFromAccountId(int fromAccountId) {
-        this.fromAccountId = fromAccountId;
-    }
-
-    public int getToAccountId() {
-        return toAccountId;
-    }
-
-    public void setToAccountId(int toAccountId) {
-        this.toAccountId = toAccountId;
-    }
-
-    public double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
-    public Timestamp getTransactionDate() {
-        return transactionDate;
-    }
-
-    public void setTransactionDate(Timestamp transactionDate) {
-        this.transactionDate = transactionDate;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }

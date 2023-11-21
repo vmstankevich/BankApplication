@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
-public class AccountDAO implements DaoConnector<Account> {
+public class AccountDAOAbstract implements DaoAbstractConnector<Account> {
     @Override
     public String tableName() {
         return "bankapplication.account";
