@@ -7,18 +7,15 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
-public class TransactionDAOAbstract implements DaoAbstractConnector<Transaction> {
-    @Override
-    public String tableName() {
-        return "bankapplication.transaction";
+public class TransactionDAOAbstract extends DaoAbstractConnector<Transaction> {
+    private final static String tableName = "bankapplication.transaction";
+    private final static List<String> columnNames = Arrays.asList(
+            "transaction_id", "from_account_id", "to_account_id", "amount", "transaction_date", "description");
+
+    public TransactionDAOAbstract() {
+        super(tableName, columnNames);
     }
 
-
-    @Override
-    public List<String> columnNames() {
-        return Arrays.asList(
-                "transaction_id", "from_account_id", "to_account_id", "amount", "transaction_date", "description");
-    }
 
     @Override
     public PreparedStatement process(PreparedStatement ps, Transaction transaction) throws SQLException {

@@ -31,8 +31,6 @@ public abstract class DaoAbstractConnector<T> implements DaoConnector<T>{
                      query
              )) {
             process(statement, t);
-
-
             statement.executeUpdate();
 
         } catch (SQLException e) {

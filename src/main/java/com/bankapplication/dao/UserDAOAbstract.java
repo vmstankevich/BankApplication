@@ -7,20 +7,17 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
-public class UserDAOAbstract implements DaoAbstractConnector<User> {
+public class UserDAOAbstract extends DaoAbstractConnector<User> {
 
-        @Override
-        public String tableName() {
-            return "bankapplication.user";
-        }
+        private final static String tableName = "bankapplication.user";
+        private final static List<String> columnNames = Arrays.asList("user_id", "username", "full_name", "password", "email");
+
+    public UserDAOAbstract() {
+        super(tableName, columnNames);
+    }
 
 
-        @Override
-        public List<String> columnNames() {
-            return Arrays.asList("user_id", "username", "full_name", "password", "email");
-        }
-
-        @Override
+    @Override
         public PreparedStatement process(PreparedStatement ps, User user) throws SQLException {
             int i = 0;
             ps.setInt(++i, user.getUserId());

@@ -20,7 +20,7 @@ public class MainBankApplication {
         Bank bank4 = new Bank(4, "Alior Bank", "01-791, Kraków, Armii krajowej str. 156");
         Bank bank5 = new Bank(5, "MBank", "01-791, Wrocław, Poznańska str. 3");
 
-        DaoConnector bankDao = new BankDAOConnector();
+        DaoAbstractConnector bankDao = new BankDAOAbstract();
 
         /*bankDao.create(bank1);
         bankDao.create(bank2);
@@ -42,7 +42,8 @@ public class MainBankApplication {
 
         Account account1 = new Account(122456780, user1.getUserId(), bank1.getBankId(), 10.00);
         Account account2 = new Account(122456789, user1.getUserId(), bank1.getBankId(), 0.00);
-        AccountDAOAbstract accountDAO = new AccountDAOAbstract();
+
+        DaoAbstractConnector accountDAO = new AccountDAOAbstract();
 
         //accountDAO.create(account1);
 
@@ -52,7 +53,7 @@ public class MainBankApplication {
                 15, account1.getAccountId(), account2.getAccountId(), 5.00,
                 new Timestamp(System.currentTimeMillis()), "prezent");
 
-        TransactionDAOAbstract transactionDAO = new TransactionDAOAbstract();
+        DaoAbstractConnector transactionDAO = new TransactionDAOAbstract();
 
         //transactionDAO.create(transaction1);
     }

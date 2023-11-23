@@ -6,16 +6,14 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
-public class AccountDAOAbstract implements DaoAbstractConnector<Account> {
-    @Override
-    public String tableName() {
-        return "bankapplication.account";
-    }
+public class AccountDAOAbstract extends DaoAbstractConnector<Account> {
 
+    private final static String tableName = "bankapplication.account";
 
-    @Override
-    public List<String> columnNames() {
-        return Arrays.asList("account_id", "user_id", "bank_id", "balance");
+    private final static List<String> columnNames = Arrays.asList("account_id", "user_id", "bank_id", "balance");
+
+    public AccountDAOAbstract() {
+        super(tableName, columnNames);
     }
 
     @Override

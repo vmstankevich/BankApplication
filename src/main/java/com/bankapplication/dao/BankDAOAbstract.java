@@ -8,15 +8,15 @@ import java.util.Arrays;
 import java.util.List;
 
 //TODO поля tableName, columnNames создавались автоматиески
-public class BankDAOConnector extends DaoAbstractConnector<Bank> {
+public class BankDAOAbstract extends DaoAbstractConnector<Bank> {
     private final static String tableName = "bankapplication.bank";
     private final static List<String> columnNames = Arrays.asList("bank_id", "name", "address");
 
-    public BankDAOConnector() {
+    public BankDAOAbstract() {
         super(tableName, columnNames);
     }
 
-    public void readBank(int bankId) { //List
+    public void readBank() { //TODO метод принимает list и в зависимости от запроса возвращает или одну или несколько записей
 
     }
 
