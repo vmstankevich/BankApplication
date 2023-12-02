@@ -3,6 +3,7 @@ package com.bankapplication.dao;
 
 import com.bankapplication.model.User;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
@@ -27,5 +28,16 @@ public class UserDAOAbstract extends DaoAbstractConnector<User> {
             ps.setString(++i, user.getEmail());
             return ps;
         }
+
+    @Override
+    protected User mapResultSetToEntity(ResultSet resultSet) throws SQLException {
+        int userId = resultSet.getInt("user_id");
+        String username = resultSet.getString("full_name");
+        String fullName = resultSet.getString("full_name");
+        String password = resultSet.getString("password");
+        String email = resultSet.getString("email");
+
+        return new User(userId, username, fullName, password, email);
     }
+}
 

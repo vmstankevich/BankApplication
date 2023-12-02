@@ -3,7 +3,9 @@ package com.bankapplication.dao;
 import com.bankapplication.model.Transaction;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.List;
 
@@ -28,5 +30,17 @@ public class TransactionDAOAbstract extends DaoAbstractConnector<Transaction> {
         ps.setString(++i, transaction.getDescription());
 
         return ps;
+    }
+
+    @Override
+    protected Transaction mapResultSetToEntity(ResultSet resultSet) throws SQLException {
+        int transactionId = resultSet.getInt("transaction_id");
+        int fromAccountId = resultSet.getInt("from_account_id");
+        int toAccountId = resultSet.getInt("to_account_id");
+        double amount = resultSet.getDouble("amount");
+        Timestamp transactionDate = resultSet.getTimestamp("transaction_date");
+        String description = resultSet.getString("description");
+
+        return new Transaction(transactionId, fromAccountId, toAccountId, amount, transactionDate, description);
     }
 }

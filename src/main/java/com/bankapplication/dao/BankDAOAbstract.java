@@ -3,6 +3,7 @@ package com.bankapplication.dao;
 import com.bankapplication.model.Bank;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
@@ -36,5 +37,14 @@ public class BankDAOAbstract extends DaoAbstractConnector<Bank> {
         ps.setString(++i, bank.getName());
         ps.setString(++i, bank.getAddress());
         return ps;
+    }
+
+    @Override
+    protected Bank mapResultSetToEntity(ResultSet resultSet) throws SQLException {
+        int bankId = resultSet.getInt("bank_id");
+        String name = resultSet.getString("name");
+        String address = resultSet.getString("address");
+
+        return new Bank(bankId, name, address);
     }
 }
