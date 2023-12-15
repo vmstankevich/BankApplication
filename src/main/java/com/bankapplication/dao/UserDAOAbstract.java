@@ -28,16 +28,25 @@ public class UserDAOAbstract extends DaoAbstractConnector<User> {
             ps.setString(++i, user.getEmail());
             return ps;
         }
-
+        //TODO убрать из запроса поле password
     @Override
     protected User mapResultSetToEntity(ResultSet resultSet) throws SQLException {
+        //реализация через Builder(возвращает password=null)
+        /*User user = User.builder()
+                .userId(resultSet.getInt("user_id"))
+                .username(resultSet.getString("username"))
+                .fullName(resultSet.getString("full_name"))
+                .email(resultSet.getString("email"))
+                .build();*/
+
+        //реализация через создание конструктора в User без поля password
+        //тоже возвращает password=null
         int userId = resultSet.getInt("user_id");
-        String username = resultSet.getString("full_name");
+        String username = resultSet.getString("username");
         String fullName = resultSet.getString("full_name");
-        String password = resultSet.getString("password");
         String email = resultSet.getString("email");
 
-        return new User(userId, username, fullName, password, email);
+        return new User(userId, username, fullName, email);
     }
 }
 
