@@ -2,10 +2,7 @@ package com.bankapplication.dao;
 
 import com.bankapplication.DatabaseConnection;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Collections;
 import java.util.List;
 
@@ -58,6 +55,17 @@ public abstract class DaoAbstractConnector<T> implements DaoConnector<T>{
             e.printStackTrace();
         }
         return null;
+    }
+    public void deleteDataFromTables() {
+        DatabaseConnection databaseConnection = new DatabaseConnection();
+        try (Connection connection = databaseConnection.getConnection();
+            Statement statement = connection.createStatement()) {
+            String deleteQuery = "DELETE FROM " + tableName;
+            statement.executeUpdate(deleteQuery);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
     protected abstract T mapResultSetToEntity(ResultSet resultSet) throws SQLException;
 }
