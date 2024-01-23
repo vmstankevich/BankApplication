@@ -47,7 +47,6 @@ public abstract class DaoAbstractConnector<T> implements DaoConnector<T>{
 
             try (ResultSet resultSet = statement.executeQuery()) {
                if (resultSet.next()) {
-                   System.out.println("сработал метод read()");
                    return mapResultSetToEntity(resultSet);
                }
             }
@@ -62,6 +61,7 @@ public abstract class DaoAbstractConnector<T> implements DaoConnector<T>{
             Statement statement = connection.createStatement()) {
             String deleteQuery = "DELETE FROM " + tableName;
             statement.executeUpdate(deleteQuery);
+            System.out.println(tableName + " was cleared successfully");
 
         } catch (SQLException e) {
             e.printStackTrace();

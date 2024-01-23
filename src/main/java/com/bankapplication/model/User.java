@@ -3,10 +3,12 @@ package com.bankapplication.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(exclude = "password")
 
 public class User {
     private int userId;
