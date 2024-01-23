@@ -1,37 +1,26 @@
 package com.bankapplication.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString(exclude = "password")
+
 public class User {
     private int userId;
+    private String username;
     private String fullName;
+    private String password;
     private String email;
 
-    public User(int userId, String fullName, String email) {
+    public User(int userId, String username, String fullName, String email) {
         this.userId = userId;
+        this.username = username;
         this.fullName = fullName;
-        this.email = email;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
         this.email = email;
     }
 }

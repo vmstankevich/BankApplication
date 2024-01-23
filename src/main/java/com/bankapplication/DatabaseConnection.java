@@ -10,9 +10,9 @@ import java.sql.SQLException;
 import java.util.Map;
 
 public class DatabaseConnection {
-    private static String url;
-    private static String username;
-    private static String password;
+    private String url;
+    private String username;
+    private String password;
 
     public DatabaseConnection() {
         Yaml yaml = new Yaml();
@@ -27,10 +27,9 @@ public class DatabaseConnection {
             e.printStackTrace();
         }
     }
-    public static Connection getConnection() throws SQLException {
+    public Connection getConnection() throws SQLException {
         return DriverManager.getConnection(url, username, password);
     }
-
 }
 
 
